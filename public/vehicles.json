@@ -1,0 +1,162 @@
+[
+  {
+    "id": "HR38AF6437",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Mumbai",
+    "dropLocations": [" Delhi", " Jaipur", " Agra", " Pune", " Ahmedabad", " Nagpur", " Bhopal", " Indore", " Rajkot", " Surat"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AE4288",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "0°C to 25°C",
+    "startFrom": "Chennai",
+    "dropLocations": [" Bangalore", " Hyderabad", " Coimbatore", " Madurai", " Vellore", " Puducherry", " Tiruchirappalli", " Salem"],
+    "vehicleType": "Chiller"
+  },
+  {
+    "id": "HR38AE6128",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "25°C and above",
+    "startFrom": "Kolkata",
+    "dropLocations": [" Patna", " Ranchi", " Guwahati", " Bhubaneswar", " Jamshedpur", " Dhanbad", " Durgapur", " Cuttack"],
+    "vehicleType": "Dry"
+  },
+  {
+    "id": "HR38AF5218",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Delhi",
+    "dropLocations": [" Lucknow", " Kanpur", " Varanasi", " Jaipur", " Chandigarh", " Dehradun", " Agra", " Faridabad"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AF6032",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "0°C to 25°C",
+    "startFrom": "Hyderabad",
+    "dropLocations": [" Vijayawada", " Visakhapatnam", " Warangal", " Nellore", " Kurnool", " Tirupati", " Khammam", " Eluru"],
+    "vehicleType": "Chiller"
+  },
+  {
+    "id": "DL1GE2382",
+    "vehicleName": "Tata Truck 22-feet",
+    "capacity": "8000",
+    "size": "Large",
+    "tempRange": "25°C and above",
+    "startFrom": "Mumbai",
+    "dropLocations": [" Surat", " Ahmedabad", " Rajkot", " Vadodara", " Nashik", " Pune", " Aurangabad", " Kolhapur", " Jalgaon"],
+    "vehicleType": "Dry"
+  },
+  {
+    "id": "DL1LAH6412",
+    "vehicleName": "Mahindra maxi bolerotruck Plus CNG",
+    "capacity": "1200",
+    "size": "Medium",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Chandigarh",
+    "dropLocations": [" Amritsar", " Jalandhar", " Ludhiana", " Pathankot", " Ambala", " Patiala", " Hoshiarpur", " Moga", " Karnal"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "DL1LAH6463",
+    "vehicleName": "Mahindra maxi bolerotruck Plus CNG",
+    "capacity": "1200",
+    "size": "Medium",
+    "tempRange": "0°C to 25°C",
+    "startFrom": "Pune",
+    "dropLocations": [" Nagpur", " Aurangabad", " Nashik", " Solapur", " Sangli", " Kolhapur", " Amravati", " Jalgaon", " Latur"],
+    "vehicleType": "Chiller"
+  },
+  {
+    "id": "DL1LAJ1123",
+    "vehicleName": "Mahindra maxi bolerotruck Plus CNG",
+    "capacity": "1200",
+    "size": "Medium",
+    "tempRange": "25°C and above",
+    "startFrom": "Jaipur",
+    "dropLocations": [" Jodhpur", " Udaipur", " Bikaner", " Kota", " Ajmer", " Bhilwara", " Alwar", " Sikar", " Pali", " Nagaur"],
+    "vehicleType": "Dry"
+  },
+  {
+    "id": "DL1LAJ1160",
+    "vehicleName": "Mahindra maxi bolerotruck Plus CNG",
+    "capacity": "1200",
+    "size": "Medium",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Ahmedabad",
+    "dropLocations": [" Vadodara", " Surat", " Rajkot", " Bhavnagar", " Jamnagar", " Gandhinagar", " Junagadh", " Porbandar"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "DL1LAJ1179",
+    "vehicleName": "Mahindra maxi bolerotruck Plus CNG",
+    "capacity": "1200",
+    "size": "Medium",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Mumbai",
+    "dropLocations": [" Nagpur", " Pune", " Nashik", " Solapur", " Kolhapur", " Aurangabad", " Dhule", " Amravati"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AF2093",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Bhopal",
+    "dropLocations": [" Indore", " Jabalpur", " Gwalior", " Ujjain", " Sagar", " Satna", " Rewa", " Dewas", " Khandwa"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AF8120",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Lucknow",
+    "dropLocations": [" Kanpur", " Allahabad", " Varanasi", " Gorakhpur", " Bareilly", " Jhansi", " Mathura", " Faizabad", " Moradabad"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AF0518",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Bengaluru",
+    "dropLocations": [" Mysore", " Hubli", " Mangalore", " Belgaum", " Gulbarga", " Davangere", " Shimoga", " Tumkur", " Raichur"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AF7151",
+    "vehicleName": "Super carry",
+    "capacity": "700",
+    "size": "Small",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Guwahati",
+    "dropLocations": [" Shillong", " Imphal", " Aizawl", " Kohima", " Agartala", " Dibrugarh", " Tezpur", " Silchar", " Tinsukia"],
+    "vehicleType": "Frozen"
+  },
+  {
+    "id": "HR38AF5329",
+    "vehicleName": "Tata Truck 22-feet",
+    "capacity": "6000",
+    "size": "Large",
+    "tempRange": "-25°C to 0°C",
+    "startFrom": "Ranchi",
+    "dropLocations": [" Jamshedpur", " Dhanbad", " Bokaro", " Hazaribagh", " Deoghar", " Giridih", " Ramgarh", " Dumka", " Gumla"],
+    "vehicleType": "Frozen"
+  }
+]

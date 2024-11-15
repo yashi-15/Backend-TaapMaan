@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Login</title>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+        <style>
+            /* Imported font from Google Fonts */
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+            /* Global styles */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: "Poppins", sans-serif;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                background-size: cover;
+                background-position: center;
+            }
+
+            .wrapper {
+                width: 420px;
+                background: transparent;
+                border: 2px solid rgb(58, 40, 40);
+                backdrop-filter: blur(20px);
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.578);
+                color: rgb(0, 0, 0);
+                border-radius: 10px;
+                padding: 30px 40px;
+            }
+
+            h2 {
+                color: rgb(3, 94, 159);
+                font-size: 36px;
+                text-align: center;
+            }
+
+            .input-box {
+                position: relative;
+                width: 100%;
+                height: 50px;
+                margin: 30px 0;
+            }
+
+            .input-box input {
+                width: 100%;
+                height: 100%;
+                background: transparent;
+                border: none;
+                outline: none;
+                border: 2px solid rgba(146, 133, 133, 0.641);
+                border-radius: 40px;
+                font-size: 16px;
+                color: rgb(0, 0, 0);
+                padding: 20px 45px 20px 20px;
+            }
+
+            .input-box input::placeholder {
+                color: rgb(0, 0, 0);
+            }
+
+            .input-box i {
+                position: absolute;
+                right: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 20px;
+            }
+
+            .remember-forgot {
+                display: flex;
+                justify-content: space-between;
+                font-size: 14.5px;
+                margin: -15px 0 15px;
+            }
+
+            .remember-forgot label input {
+                accent-color: rgb(3, 3, 3);
+                margin-right: 3px;
+            }
+
+            .remember-forgot a {
+                color: rgb(0, 0, 255);
+                text-decoration: none;
+            }
+
+            .remember-forgot a:hover {
+                text-decoration: underline;
+            }
+
+            #btn {
+                width: 100%;
+                height: 45px;
+                background: rgb(0, 242, 255);
+                border: none;
+                outline: none;
+                border-radius: 40px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                cursor: pointer;
+                font-size: 16px;
+                color: #333;
+                font-weight: 600;
+            }
+
+            .register-link {
+                font-size: 14.5px;
+                text-align: center;
+                margin-top: 20px 0 15px;
+            }
+
+            .register-link p a {
+                color: rgb(72, 0, 255);
+                text-decoration: none;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper">
+            <form id="loginForm" name="loginForm">
+                <h2>Taapmaan Login</h2>
+                <div class="input-box">
+                    <input type="text" id="email" class="login-form-field" name="email" required placeholder="email" autocomplete="email" />
+                    <i class="bx bxs-user-circle"></i>
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" class="login-form-field" name="password" required placeholder="Password" autocomplete="off" />
+                    <i class="bx bx-lock-alt"></i>
+                </div>
+                <div class="remember-forgot">
+                    <label> <input type="checkbox" />Remember me </label>
+                    <a href="frgt-pass.html" style="color: rgb(0, 17, 255)">Forgot password?</a>
+                </div>
+                <button id="btn" type="submit">Login</button>
+                <div class="register-link">
+                    <p>
+                        Don't have an account?
+                        <a href="signup.html">Register</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <script>
+            const loginForm = document.getElementById("loginForm");
+
+            loginForm.addEventListener("submit", (event) => {
+                event.preventDefault();
+
+                const email = document.getElementById("email").value;
+                const password = document.getElementById("password").value;
+
+                fetch("/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ email, password }),
+                })
+                    .then((response) => response.json())
+                    .then((data) => {
+                        if (data.success) {
+                            console.log(data);
+                            // Save user details in localStorage only if data.user is defined
+                            if (data.user) {
+                                localStorage.setItem("user", JSON.stringify(data.user));
+                            }
+
+                            // Redirect to home page
+                            window.location.href = "index.html";
+                        } else {
+                            alert(data.message); // Display error message if login fails
+                        }
+                    })
+                    .catch((error) => {
+                        console.error("Error logging in:", error);
+                        alert("An error occurred. Please try again later.");
+                    });
+            });
+        </script>
+    </body>
+</html>
