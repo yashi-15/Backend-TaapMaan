@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
+require('dotenv').config();
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,13 +10,15 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.json());
 app.use(express.static('public'));
 
-// Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/Database', {
+// Connect to MongoDB Atlas
+// const mongoURI = 'mongodb+srv://yashiTaapmaan:taapmaanDatabase@taapmaan-database.5sqjy.mongodb.net/?retryWrites=true&w=majority&appName=Taapmaan-Database';
+
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('Database connected'))
-.catch(err => console.error('Error connecting to database:', err));
+.then(() => console.log('Connected to MongoDB Atlas'))
+.catch(err => console.error('Error connecting to MongoDB Atlas:', err));
 
 // Define User Schema
 const userSchema = new mongoose.Schema({
@@ -36,24 +39,19 @@ app.get("/", (req, res) => {
 app.post("/signup", async (req, res) => {
   const { name, email, phone, password } = req.body;
 
-  // Check if all required fields are provided
   if (!name || !email || !phone || !password) {
     return res.status(400).json({ error: "All fields are required" });
   }
 
   try {
-    // Convert email to string explicitly
     const emailString = email.toString();
 
-    // Check for existing user with the same email
     const existingUser = await User.findOne({ email: emailString });
     if (existingUser) {
       return res.status(400).json({ error: "Email already exists" });
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-
     const newUser = new User({ name, email: emailString, phone, password: hashedPassword });
     await newUser.save();
 
@@ -75,26 +73,22 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    // Compare hashed password
     const isPasswordMatch = await bcrypt.compare(password, user.password);
     if (!isPasswordMatch) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
 
-    // Send back user data for storing in local storage
     console.log("User logged in successfully");
     res.json({ 
       success: true, 
       message: "Login successful",
-      user: { name: user.name, phone: user.phone, email: user.email } // Include user details here
+      user: { name: user.name, phone: user.phone, email: user.email }
     });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ message: "Error logging in. Please try again later." });
   }
 });
-
-
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
