@@ -61,7 +61,7 @@
                         <a class="text-dark px-3" href="">
                             <i class="fab fa-whatsapp"></i>
                         </a>
-                        
+
                         <a class="text-dark px-3" href="https://www.instagram.com/taapmaanlive?igsh=eW85Zmt0cWQ5ejM4&utm_source=qr">
                             <i class="fab fa-instagram"></i>
                         </a>
@@ -122,46 +122,18 @@
 
                                 <div class="col-6 col-md-4 col-lg-11 d-flex flex-column my-2">
                                     <label>Vehicle Type:</label>
-                                    <!-- <select id="selected-vehicle" class="form-control p-2" style="min-height: 40px">
-                                    <option value="Frozen">Frozen</option>
-                                    <option value="Chiller">Chiller</option>
-                                    <option value="Dry">Dry</option>
-                                </select> -->
                                     <input id="selected-vehicle" class="form-control p-2" readonly />
                                 </div>
 
                                 <div class="col-6 col-md-4 col-lg-11 d-flex flex-column my-2">
                                     <label>Quantity Of Product:</label>
-                                    <!-- <select id="quantity-product" class="custom-select px-4 mb-3" style="height: 40px">
-                                    <option selected>Quantity of product</option>
-                                    <option value="0-100">00-100Kg</option>
-                                    <option value="100-250">100-250kg</option>
-                                    <option value="250-700">250-700kg</option>
-                                    <option value="700-1000">700-1000kg</option>
-                                    <option value="1000-8000">1000-8000kg</option>
-                                </select> -->
                                     <input id="quantity-product" class="form-control p-2" readonly />
                                 </div>
 
                                 <div class="col-6 col-md-4 col-lg-11 d-flex flex-column my-2">
                                     <label>Type Of Product:</label>
-                                    <!-- <select id="type-product" class="custom-select px-4 mb-3" style="height: 40px">
-                                    <option selected>Type of product</option>
-                                    <option value="Frozen Food">Frozen Food</option>
-                                    <option value="Dairy">Dairy</option>
-                                    <option value="Raw Meat">Raw Meat</option>
-                                    <option value="Pharma">Pharma</option>
-                                    <option value="Fruits & veggies">Fruits & veggies</option>
-                                    <option value="Ice Cream">Ice Cream</option>
-                                    <option value="Frozen Peas">Frozen Peas</option>
-                                    <option value="Others">Others</option>
-                                </select> -->
                                     <input id="type-product" class="form-control p-2" readonly />
                                 </div>
-
-                                <!-- <div class="row justify-content-center align-items-center my-3">
-                                <button type="submit" onclick="fetchAvailableTrucks()">Search</button>
-                            </div> -->
                             </div>
                         </form>
                     </div>
@@ -188,6 +160,7 @@
                             <div class="d-flex justify-content-center align-items-center">
                                 <input id="yourName" name="entry.971733700" type="text" class="form-control p-3 m-2" placeholder="Your Name" required />
                                 <input id="yourPhonenumber" name="entry.338509281" type="text" class="form-control p-3 m-2" placeholder="Your Phone No." required />
+                                <input id="exactWeight" name="" type="text" class="form-control p-3 m-2" placeholder="Exact Weight" required />
                             </div>
                             <hr />
 
@@ -254,62 +227,6 @@
         <a href="#" class="btn btn-lg btn-primaryorange btn-lg-square back-to-top"><i class="fa fa-angle-double-up"></i></a>
 
         <script src="js/main.js"></script>
-
-        <script>
-            // Get all the vehicle boxes
-            const vehicleBoxes = document.querySelectorAll(".vehicle-box");
-            const hiddenInput = document.getElementById("selected-vehicle");
-
-            vehicleBoxes.forEach((box) => {
-                box.addEventListener("click", function () {
-                    // Remove the 'selected' class from all boxes
-                    vehicleBoxes.forEach((box) => box.classList.remove("selected"));
-
-                    // Add the 'selected' class to the clicked box
-                    this.classList.add("selected");
-
-                    // Set the value of the hidden input to the selected vehicle's data-value
-                    const selectedVehicle = this.getAttribute("data-value");
-                    hiddenInput.value = selectedVehicle;
-
-                    console.log("Selected vehicle:", selectedVehicle);
-                });
-            });
-        </script>
-        <script>
-            // function initAutocomplete() {
-            //     var pickupInput = document.getElementById("pickup-location");
-            //     var dropInput = document.getElementById("drop-location");
-            //     var storageInput = document.getElementById("storage-location");
-
-            //     var pickupAutocomplete = new google.maps.places.Autocomplete(pickupInput);
-            //     var dropAutocomplete = new google.maps.places.Autocomplete(dropInput);
-            //     var storageAutocomplete = new google.maps.places.Autocomplete(storageInput);
-
-            //     pickupAutocomplete.setComponentRestrictions({ country: ["IN", "PK", "BD", "NP", "BT", "LK", "MV"] });
-            //     dropAutocomplete.setComponentRestrictions({ country: ["IN", "PK", "BD", "NP", "BT", "LK", "MV"] });
-            //     storageAutocomplete.setComponentRestrictions({ country: ["IN", "PK", "BD", "NP", "BT", "LK", "MV"] });
-
-            //     // Add listeners to handle the selected place
-            //     pickupAutocomplete.addListener("place_changed", function () {
-            //         var place = pickupAutocomplete.getPlace();
-            //         console.log("Pickup location:", place);
-            //     });
-
-            //     dropAutocomplete.addListener("place_changed", function () {
-            //         var place = dropAutocomplete.getPlace();
-            //         console.log("Drop location:", place);
-            //     });
-
-            //     storageAutocomplete.addListener("place_changed", function () {
-            //         var place = storageAutocomplete.getPlace();
-            //         console.log("Storage location:", place);
-            //     });
-            // }
-
-            // // Initialize Google Maps Autocomplete after the page loads
-            // google.maps.event.addDomListener(window, "load", initAutocomplete);
-        </script>
         <script>
             // Populate fields with data from localStorage
             document.getElementById("pickup-location").value = localStorage.getItem("pickupLocation");
@@ -340,8 +257,8 @@
                         const { pricePerKg, estimatedPriceRange } = await calculateEstimatedPrice(vehicle, pickupLocation, dropLocation, quantityProduct);
 
                         // Store these values in the vehicle object for easy access
-    vehicle.estimatedPriceRange = estimatedPriceRange;
-    vehicle.pricePerKg = pricePerKg;
+                        vehicle.estimatedPriceRange = estimatedPriceRange;
+                        vehicle.pricePerKg = pricePerKg;
 
                         vehicleCard.innerHTML = `
                 <div class="bg-${vehicle.vehicleType} d-flex justify-content-between">
@@ -378,8 +295,20 @@
                             modalTempRange.textContent = `${vehicle.tempRange}`;
                             modalCapacity.textContent = `${vehicle.capacity} Kg (${vehicle.size})`;
                             // Populate the modal with the estimated price data
-        modalEstimatedPrice.textContent = `${vehicle.estimatedPriceRange} (₹ ${vehicle.pricePerKg} per Kg)`;
+                            modalEstimatedPrice.textContent = "Enter a valid weight";
 
+                            document.getElementById("exactWeight").addEventListener("input", async function (e) {
+                                const weight = parseFloat(e.target.value);
+
+                                if (isNaN(weight) || weight <= 0) {
+                                    // If invalid weight, show a message or clear the price
+                                    modalEstimatedPrice.textContent = "Enter a valid weight";
+                                    return;
+                                }
+
+                                const { pricePerKg, estimatedPriceRange } = await calculateEstimatedPrice(vehicle, pickupLocation, dropLocation, quantityProduct);
+                                modalEstimatedPrice.textContent = `₹ ${pricePerKg * weight} `;
+                            });
                         }
                     });
                 } catch (error) {
