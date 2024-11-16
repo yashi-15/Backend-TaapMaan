@@ -11,6 +11,11 @@ html {
   }
   
 
+
+.team-item{
+    width: 350px;
+}
+
 .vehicle_box{
     width: 60vw;
 }
@@ -259,6 +264,15 @@ h6,
      .about_stats_card h4{
         font-size: 18px;
      }
+     .team-item{
+        width: 300px;
+    }
+    .team-item div h4{
+        font-size: 16px;
+    }
+    .team-item div p{
+        font-size: 12px;
+    }
     
 }
 @media (min-width: 992px) {
@@ -523,6 +537,9 @@ body {
     .vehicle_box{
         width: 90vw;
     }
+    .team-item{
+        width: 280px;
+    }
 }
 @media only screen and (max-width: 800px) {
     #banner_form {
@@ -566,6 +583,8 @@ body {
     .btn-booknow, .estimated_price{
         font-size: 10px;
     }
-
+    .team-item{
+        width: 200px;
+    }
     
 }

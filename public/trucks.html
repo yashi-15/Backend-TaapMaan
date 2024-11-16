@@ -155,20 +155,20 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <!-- https://docs.google.com/forms/d/e/1FAIpQLSciUs5rnk0JtcReAfl8jeYXZmk-tINfyioYc-1Z3SVwCbk6kQ/viewform?usp=pp_url&entry.971733700=name&entry.338509281=phone&entry.74539831=pickup&entry.1797661727=drop&entry.860171057=date&entry.1674096571=vehicletype&entry.495744575=quantity&entry.860091518=type -->
+                        <!-- https://docs.google.com/forms/d/e/1FAIpQLSciUs5rnk0JtcReAfl8jeYXZmk-tINfyioYc-1Z3SVwCbk6kQ/viewform?usp=pp_url&entry.971733700=name&entry.338509281=phone&entry.1178663220=weight&entry.1400587036=price&entry.74539831=pickup&entry.1797661727=drop&entry.860171057=date&entry.1674096571=type+vehicle&entry.495744575=quantity+product&entry.860091518=type+product -->
                         <form action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSciUs5rnk0JtcReAfl8jeYXZmk-tINfyioYc-1Z3SVwCbk6kQ/formResponse" method="post" target="hidden_iframe3" onsubmit="return vehicleModalSubmit()">
                             <div class="row justify-content-center align-items-center">
                                 <input id="yourName" name="entry.971733700" type="text" class="col-5 form-control p-3 m-2" placeholder="Name" required />
                                 <input id="yourPhonenumber" name="entry.338509281" type="text" class="col-5 form-control p-3 m-2" placeholder="Phone No." required />
-                                <input id="exactWeight" name="" type="text" class="col-8 form-control p-3 m-2" placeholder="Exact Weight" required />Kg
+                                <input id="exactWeight" name="entry.1178663220" type="text" class="col-8 form-control p-3 m-2" placeholder="Exact Weight" required />Kg
                             </div>
                             <hr />
 
                             <div class="row mt-3 justify-content-center align-items-center">
                                 <p class="col-11"><strong>Vehicle Name:</strong> <span id="modalVehicleName"></span></p>
                                 <p class="col-11"><strong>Temperature Range:</strong> <span id="modalTempRange"></span></p>
-                                <!-- <p class="col-11"><strong>Capacity:</strong> <span id="modalCapacity"></span></p> -->
                                 <p class="col-11"><strong>Price:</strong> <span id="modalEstimatedPrice"></span></p>
+                                <input id="modal-price" name="entry.1400587036" type="text" class="form-control p-3 m-2 rounded-pill col-11" hidden />
                                 <input id="modal-pickup-location" name="entry.74539831" type="text" class="form-control p-3 m-2 rounded-pill col-11" readonly />
                                 <input id="modal-drop-location" name="entry.1797661727" type="text" class="form-control p-3 m-2 rounded-pill col-11" readonly />
                                 <input id="modal-pickup-date" name="entry.860171057" type="text" class="form-control p-3 m-2 rounded-pill col-11" readonly />
@@ -283,6 +283,7 @@
                     const modalTempRange = document.getElementById("modalTempRange");
                     // const modalCapacity = document.getElementById("modalCapacity");
                     const modalEstimatedPrice = document.getElementById("modalEstimatedPrice");
+                    const inputField = document.querySelector("#modal-price");
 
                     // Event delegation to handle "Book Now" clicks
                     vehicleResults.addEventListener("click", (e) => {
@@ -308,6 +309,8 @@
 
                                 const { pricePerKg, estimatedPriceRange } = await calculateEstimatedPrice(vehicle, pickupLocation, dropLocation, quantityProduct);
                                 modalEstimatedPrice.textContent = `₹ ${pricePerKg * weight} `;
+                                inputField.value = modalEstimatedPrice.textContent;
+                             
                             });
                         }
                     });
